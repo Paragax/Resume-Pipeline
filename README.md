@@ -68,6 +68,9 @@ The API_TOKEN_GITHUB needs to be set in the Secrets section of your repository o
 
 Update these values if you rename your files or change your folder structure.
 
+By default, the workflow copies the generated (hidden/public) resume PDF into the root of your portfolio repository. If your portfolio site expects static files inside a specific directory (for example public/, static/, assets/, or docs/), you can configure the workflow to paste the PDF into that folder instead. Uncomment the `destination_folder` line in the `build-latex.yaml` workflow
+and enter your path.
+
 ## Git Configuration
 
 - **`GIT_USER_NAME`**  
