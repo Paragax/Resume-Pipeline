@@ -55,6 +55,8 @@ Before running the script, you **must update the configuration values** in:
 
 The script relies on these constants to control file names, output paths, and Git commit identity.
 
+The API_TOKEN_GITHUB needs to be set in the Secrets section of your repository options. You can retrieve the API_TOKEN_GITHUB [here](https://github.com/settings/tokens) (set the `repo` permissions).
+
 ## PDF Configuration
 
 - **`PDF`**  
@@ -89,6 +91,8 @@ Failure to update these values may result in:
 - Incorrect file names
 - Failed CI/CD runs
 - Commits pushed to the wrong repository
+
+Remember to set your API_TOKEN_GITHUB.
 
 ## Example
 
