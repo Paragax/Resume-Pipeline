@@ -13,6 +13,7 @@ The workflow solves a common problem:
 With this setup, you can:
 
 - Edit your resume locally in VS Code
+- Preview changes in real time while editing
 - Build PDFs using a custom script
 - Automatically publish the final resume PDF to your portfolio repository
 
