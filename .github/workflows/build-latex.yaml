@@ -1,0 +1,49 @@
+name: Build Latex
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - "*.pdf"
+
+permissions:
+  contents: write
+
+jobs:
+  build-latex:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v6
+
+      - name: Export CI git identity from constants.py
+        run: |
+          python scripts/export_ci_env.py >> "$GITHUB_ENV"
+
+      - name: Build public + hidden PDFs
+        uses: xu-cheng/texlive-action@v3
+        with:
+          run: |
+            python scripts/build_resume.py resume.tex
+
+      - name: Commit PDFs to repository
+        run: |
+          git config user.name  "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+
+          git add -f *.pdf
+          git commit -m "chore: update resume PDFs - ${{ github.sha }}"  || echo "No changes to commit"
+          git push
+
+      - name: Commit hidden PDF to other repository
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: ${{ env.HIDDEN_PDF }}
+          destination_repo: ${{ env.GIT_DEST_REPO }}
+          destination_folder: "assets"
+          user_email: ${{ env.GIT_AUTHOR_EMAIL }}
+          user_name: ${{ env.GIT_AUTHOR_NAME }}
+          commit_message: "chore: update resume PDFs - ${{ github.sha }}"

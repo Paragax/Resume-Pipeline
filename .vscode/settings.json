@@ -1,0 +1,19 @@
+{
+  "latex-workshop.latex.outDir": "build",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Build (public + hidden)",
+      "tools": ["build-resume-script"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "build-resume-script",
+      "command": "python",
+      "args": ["scripts/build_resume.py", "%DOC%"]
+    }
+  ],
+  "latex-workshop.message.error.show": false,
+  "latex-workshop.message.warning.show": false
+}

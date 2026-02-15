@@ -1,0 +1,150 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\usepackage{ifthen}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.1in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Hide logic
+\newif\ifhide
+\providecommand{\HIDE}{false}
+\ifthenelse{\equal{\HIDE}{true}}{\hidetrue}{\hidefalse}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+  {\Huge \textbf{[Your Name]}} \\[4pt]
+  \small
+  \href{mailto:[your.email@example.com]}{[your.email@example.com]} $|$
+  \ifhide
+  \else
+    [Phone Number] $|$
+  \fi
+  \href{https://linkedin.com/in/[username]}{linkedin.com/in/[username]} $|$
+  \href{https://github.com/[username]}{github.com/[username]}
+\end{center}
+
+%-----------SUMMARY----------- Optional.
+\section{Summary}
+[Brief professional summary describing your experience, strengths, and focus areas. This is optional and debatable. Up to you.]
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {[University Name]}{[Location]}
+    {[Degree / Major]}{[Dates]}
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {[Company Name]}{[Location]}
+    {[Role / Title]}{[Dates]}
+    \resumeItemListStart
+      \resumeItem{[Impact-focused bullet describing achievements]}
+      \resumeItem{[Bullet highlighting technologies or responsibilities]}
+      \resumeItem{[Bullet with measurable results if possible]}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {[Company Name]}{[Location]}
+    {[Role / Title]}{[Dates]}
+    \resumeItemListStart
+      \resumeItem{[Achievement / contribution]}
+      \resumeItem{[Optimization / improvement]}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {\textbf{[Project Name]} $|$ \emph{[Tech Stack]}}{[Dates]}
+    \resumeItemListStart
+      \resumeItem{[Problem solved / system built]}
+      \resumeItem{[Technical highlight]}
+      \resumeItem{[Result / improvement]}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Skills}{: [Languages], [Frameworks], [Tools], [Cloud], [Other]}
+  }}
+\end{itemize}
+
+\end{document}
